@@ -1,7 +1,7 @@
 // Global Variables
 
 void setup() {
-  size(500, 400); //fullScreen(), displayWidth & displayHeight
+  size(600, 500); //fullScreen(), displayWidth & displayHeight
 }
 
 void draw() {}//End draw()
