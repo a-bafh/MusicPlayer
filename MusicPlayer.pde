@@ -16,7 +16,7 @@ color white = #FFFFFF;
 void setup() {
   size(500, 600);
   minim = new Minim(this);
-  song1 = minim.loadFile("Chtulthu.mp3");
+  song1 = minim.loadFile("Barrel_Full_of_Sea_Monkeys.mp3");
 }
 
 void draw () {}
