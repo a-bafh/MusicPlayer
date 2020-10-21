@@ -25,6 +25,11 @@ float rewindButtonX, rewindButtonY, rewindButtonWidth, rewindButtonHeight;
 float rewindButtonX1, rewindButtonY1, rewindButtonX2, rewindButtonY2, rewindButtonX3, rewindButtonY3;
 float rewindButton2X1, rewindButton2Y1, rewindButton2X2, rewindButton2Y2, rewindButton2X3, rewindButton2Y3;
 //
+float albumCoverX, albumCoverY, albumCoverWidth, albumCoverHeight;
+//
+float loopSquareX,loopSquareY,loopSquareWidth,loopSquareHeight;
+float loopX, loopY, loopDiameter;
+//
 color white = #FFFFFF;
 color orange = #FFB700;
 color green = #488000;
@@ -126,6 +131,16 @@ void setup() {
   rewindButton2Y2 = height*5.2/6 ;
   rewindButton2X3 = width*0.6/6 ;
   rewindButton2Y3 = height*3.8/5 ;
+  //
+  albumCoverX = width*0.7/3;
+  albumCoverY = height*0.1/2;
+  albumCoverWidth = width*1/2;
+  albumCoverHeight = height*1/2;
+  //
+  loopSquareX = width*5/20;
+  loopSquareY = height*11.3/20;
+  loopSquareWidth = width*1.6/20;
+  loopSquareHeight = height*1.6/20;
 }
 
 void draw () {
@@ -134,6 +149,9 @@ void draw () {
   rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
   rect(skipButtonX, skipButtonY, skipButtonWidth, skipButtonHeight);
   rect(rewindButtonX, rewindButtonY, rewindButtonWidth, rewindButtonHeight);
+  rect(albumCoverX, albumCoverY, albumCoverWidth, albumCoverHeight);
+  rect(loopSquareX,loopSquareY,loopSquareWidth,loopSquareHeight);
+  //
   fill(orange);
   triangle(playButtonX1, playButtonY1, playButtonX2, playButtonY2, playButtonX3, playButtonY3);
   triangle(skipButtonX1, skipButtonY1, skipButtonX2, skipButtonY2, skipButtonX3, skipButtonY3);
