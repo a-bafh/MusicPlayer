@@ -148,6 +148,11 @@ void setup() {
   loopSquareWidth = width*10/20;
   loopSquareHeight = height*1.6/20;
   //
+  loopSquareX = width*0.7/3;
+  loopSquareY = height*11.3/20;
+  loopSquareWidth = width*10/20;
+  loopSquareHeight = height*1.6/20;
+  //
   nextButtonX = width*2/3 ;
   nextButtonY = height*8.7/10 ;
   nextButtonWidth = width*0.7/5 ; 
