@@ -30,6 +30,9 @@ float albumCoverX, albumCoverY, albumCoverWidth, albumCoverHeight;
 float loopSquareX,loopSquareY,loopSquareWidth,loopSquareHeight;
 float loopX, loopY, loopDiameter;
 //
+float nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight;
+float previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight;
+//
 color white = #FFFFFF;
 color orange = #FFB700;
 color green = #488000;
@@ -81,6 +84,8 @@ void setup() {
   println( " Track:", songMetaData[currentSong].track() );
   println( "Genre:", songMetaData[currentSong].genre() );
   println( "Encoded:", songMetaData[currentSong].encoded() ); //How a computer reads the file
+  //
+  Music_Name();
   //
   //variables population
   playButtonX = width*2/5;
@@ -138,10 +143,20 @@ void setup() {
   albumCoverWidth = width*1/2;
   albumCoverHeight = height*1/2;
   //
-  loopSquareX = width*5/20;
+  loopSquareX = width*0.7/3;
   loopSquareY = height*11.3/20;
-  loopSquareWidth = width*1.6/20;
+  loopSquareWidth = width*10/20;
   loopSquareHeight = height*1.6/20;
+  //
+  nextButtonX = width*2/3 ;
+  nextButtonY = height*8.7/10 ;
+  nextButtonWidth = width*0.7/5 ; 
+  nextButtonHeight = height*0.7/5 ;
+  //
+  previousButtonX = width*0.6/3 ;
+  previousButtonY = height*8.7/10 ;
+  previousButtonWidth = width*0.7/5 ; 
+  previousButtonHeight = height*0.7/5 ;
 }
 
 void draw () {
@@ -152,6 +167,8 @@ void draw () {
   rect(rewindButtonX, rewindButtonY, rewindButtonWidth, rewindButtonHeight);
   rect(albumCoverX, albumCoverY, albumCoverWidth, albumCoverHeight);
   rect(loopSquareX,loopSquareY,loopSquareWidth,loopSquareHeight);
+  rect(nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight);
+  rect( previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight );
   //
   fill(orange);
   triangle(playButtonX1, playButtonY1, playButtonX2, playButtonY2, playButtonX3, playButtonY3);
@@ -259,4 +276,32 @@ void mousePressed() {
   if (mouseX>rewindButtonX && mouseX< rewindButtonX+rewindButtonWidth && mouseY> rewindButtonY && mouseY<rewindButtonY+rewindButtonHeight) {
     song[currentSong].skip(-5000);
   }
+  
+  if (mouseX>nextButtonX && mouseX< nextButtonX+nextButtonWidth && mouseY> nextButtonY && mouseY<nextButtonY+nextButtonHeight) { //Next Button to Console
+    if (song[currentSong].isPlaying()) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the first song, ", "Number: " + currentSong); //For Debugging
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong - 1
+        println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
+      }
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      if ( currentSong == numberOfSongs - numberOfSongs ) {
+        println ("Current Song is the last song, ", "Number: " + currentSong); //For Debugging
+        currentSong = numberOfSongs - 1;
+        println ("Current Song is now the first song or song, ", "Number: " + currentSong); //For DebuggingcurrentSong = numberOfSongs - numberOfSongs;
+      } else {
+        currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
+        println ("Current Song after the next or back button, but not the last song, ", "Number: " + currentSong); //For Debugging
+      }
+    }
+  }
+  
+  
 }
