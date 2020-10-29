@@ -7,11 +7,15 @@ import ddf.minim.ugens.*;
 
 //Global Variables
 Minim minim;
-int numberOfSongs = 5;
+int numberOfSongs = 6;
 AudioPlayer[] song = new AudioPlayer[numberOfSongs];
 AudioMetaData[] songMetaData = new AudioMetaData[numberOfSongs];
 int currentSong = numberOfSongs - numberOfSongs;
 int loopNum = 1;
+//
+PFont titleFont;
+color black = #000000;
+color red = #B20000;
 //
 float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
 float playButtonX1, playButtonY1, playButtonX2, playButtonY2, playButtonX3, playButtonY3;
@@ -45,13 +49,16 @@ void setup() {
   song[2] = minim.loadFile("Chtulthu.mp3");
   song[3] = minim.loadFile("Getting_Dirty.mp3");
   song[4] = minim.loadFile("Thor_s_Hammer.mp3");
+  song[5] = minim.loadFile("Beat_Your_Competition.mp3");
   //
-  /*
   songMetaData[0] = song[0].getMetaData();
-   songMetaData[1] = song[1].getMetaData();
-   songMetaData[2] = song[2].getMetaData();
-   */
-   int currentSong = 2;
+  songMetaData[1] = song[1].getMetaData();
+  songMetaData[2] = song[2].getMetaData();
+  songMetaData[3] = song[3].getMetaData();
+  songMetaData[4] = song[4].getMetaData();
+  songMetaData[5] = song[5].getMetaData();
+   //
+   int currentSong = 4;
   for (int i=0; i<song.length; i++) {
     songMetaData[i] = song[i].getMetaData();
   }//End Song MetaData
@@ -85,7 +92,11 @@ void setup() {
   println( "Genre:", songMetaData[currentSong].genre() );
   println( "Encoded:", songMetaData[currentSong].encoded() ); //How a computer reads the file
   //
-  Music_Name();
+  titleFont = createFont ("Arial", 25); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
+  //
+  println("Start of Console");
+  println("Click the Console to Finish Starting this program");
+  println("Press P to Play and Pause");
   //
   //variables population
   playButtonX = width*2/5;
