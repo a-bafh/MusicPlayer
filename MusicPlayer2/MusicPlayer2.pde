@@ -92,7 +92,7 @@ void setup() {
   println( "Genre:", songMetaData[currentSong].genre() );
   println( "Encoded:", songMetaData[currentSong].encoded() ); //How a computer reads the file
   //
-  titleFont = createFont ("Arial", 25); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
+  titleFont = createFont ("Arial", 15); //Must also Tools / Create Font / Find Font / Do Not Press "OK"
   //
   println("Start of Console");
   println("Click the Console to Finish Starting this program");
@@ -192,6 +192,15 @@ void draw () {
   triangle(skipButton2X1, skipButton2Y1, skipButton2X2, skipButton2Y2, skipButton2X3, skipButton2Y3);
   triangle(rewindButtonX1, rewindButtonY1, rewindButtonX2, rewindButtonY2, rewindButtonX3, rewindButtonY3);
   triangle(rewindButton2X1, rewindButton2Y1, rewindButton2X2, rewindButton2Y2, rewindButton2X3, rewindButton2Y3);
+  //
+  fill(white);
+  rect(loopSquareX, loopSquareY, loopSquareWidth, loopSquareHeight);
+  fill(red); //Ink, hexidecimal copied from Color Selector
+  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
+  textFont(titleFont, 25); //Change the number until it fits, largest font size
+  text(songMetaData[currentSong].title(), width*0.7/3, height*11.3/20, width*1/2, height*1.6/20);
+  fill(255);
 }
 
 void keyPressed() {

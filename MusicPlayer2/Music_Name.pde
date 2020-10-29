@@ -1,16 +1,4 @@
-void draw() {
-  background (black);
-  rect(width*1/4, height*0, width*1/2, height*2/10);
-  fill(red); //Ink, hexidecimal copied from Color Selector
-  textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
-  //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
-  textFont(titleFont, 25); //Change the number until it fits, largest font size
-  text(songMetaData[currentSong].title(), width*1/4, height*0, width*1/2, height*1/10);
-  fill(255); //Reset to white for rest of the program
-}//End draw()
-
-void keyPressed() {
-  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
+  /*println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
   if (key == 'n' || key == 'N') { //Next Button to Console
     if (song[currentSong].isPlaying()) {
       song[currentSong].pause();
@@ -77,4 +65,4 @@ void keyPressed() {
 }//End keyPressed()
 
 void mousePressed() {
-}
+*/
