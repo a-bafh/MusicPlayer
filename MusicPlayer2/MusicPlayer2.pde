@@ -31,11 +31,19 @@ float rewindButton2X1, rewindButton2Y1, rewindButton2X2, rewindButton2Y2, rewind
 //
 float albumCoverX, albumCoverY, albumCoverWidth, albumCoverHeight;
 //
-float loopSquareX,loopSquareY,loopSquareWidth,loopSquareHeight;
-float loopX, loopY, loopDiameter;
+float nameSquareX, nameSquareY, nameSquareWidth, nameSquareHeight;
 //
 float nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight;
+float nextButtonX2, nextButtonY2, nextButtonWidth2, nextButtonHeight2;
+float nextButtontriX1, nextButtontriY1, nextButtontriX2, nextButtontriY2, nextButtontriX3, nextButtontriY3;
+//
 float previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight;
+float previousButtonX2, previousButtonY2, previousButtonWidth2, previousButtonHeight2;
+float previousButtontriX1, previousButtontriY1, previousButtontriX2, previousButtontriY2, previousButtontriX3, previousButtontriY3;
+//
+float loopButtonX, loopButtonY, loopButtonWidth, loopButtonHeight;
+//
+float loopX, loopY, loopDiameter ;
 //
 color white = #FFFFFF;
 color orange = #FFB700;
@@ -57,8 +65,8 @@ void setup() {
   songMetaData[3] = song[3].getMetaData();
   songMetaData[4] = song[4].getMetaData();
   songMetaData[5] = song[5].getMetaData();
-   //
-   int currentSong = 4;
+  //
+  int currentSong = 4;
   for (int i=0; i<song.length; i++) {
     songMetaData[i] = song[i].getMetaData();
   }//End Song MetaData
@@ -154,20 +162,54 @@ void setup() {
   albumCoverWidth = width*1/2;
   albumCoverHeight = height*1/2;
   //
-  loopSquareX = width*0.7/3;
-  loopSquareY = height*11.3/20;
-  loopSquareWidth = width*10/20;
-  loopSquareHeight = height*1.6/20;
+  nameSquareX = width*0.7/3;
+  nameSquareY = height*11.3/20;
+  nameSquareWidth = width*10/20;
+  nameSquareHeight = height*1.6/20;
   //
   nextButtonX = width*2/3 ;
   nextButtonY = height*8.7/10 ;
-  nextButtonWidth = width*0.7/5 ; 
+  nextButtonWidth = width*1/5 ; 
   nextButtonHeight = height*0.7/5 ;
   //
-  previousButtonX = width*0.6/3 ;
+  nextButtonX2 = width*7/10 ;
+  nextButtonY2 = height*8.7/10 ;
+  nextButtonWidth2 = width*1/50 ; 
+  nextButtonHeight2 = height*0.7/5 ;
+  //
+  nextButtontriX1 = width*8.65/10 ;
+  nextButtontriY1 = height*18.7/20 ;
+  nextButtontriX2 = width*3.75/5 ;
+  nextButtontriY2 = height*1 ;
+  nextButtontriX3 = width*3.75/5 ;
+  nextButtontriY3 = height*5.2/6 ;
+  //
+  previousButtonX = width*0.4/3 ;
   previousButtonY = height*8.7/10 ;
-  previousButtonWidth = width*0.7/5 ; 
+  previousButtonWidth = width*1/5 ; 
   previousButtonHeight = height*0.7/5 ;
+  //
+  previousButtonX2 = width*1/3.55 ;
+  previousButtonY2 = height*8.7/10 ;
+  previousButtonWidth2 = width*1/50 ;
+  previousButtonHeight2 = height*0.7/5 ;
+  //
+  previousButtontriX1 = width*0.55/4 ;
+  previousButtontriY1 = height*18.7/20 ;
+  previousButtontriX2 = width*0.75/3 ;
+  previousButtontriY2 = height*1 ;
+  previousButtontriX3 = width*0.5/2 ;
+  previousButtontriY3 = height*5.2/6 ;
+  //
+  loopButtonX = width*0.9/2 ;
+  loopButtonY = height*1.8/2 ;
+  loopButtonWidth = width*1/10 ;
+  loopButtonHeight = height*1/10 ;
+  //
+  loopX = width*1/2;
+  loopY = height*1.9/2;
+  loopDiameter = width*1/20;
+  loopDiameter = height*1/20;
 }
 
 void draw () {
@@ -177,9 +219,15 @@ void draw () {
   rect(skipButtonX, skipButtonY, skipButtonWidth, skipButtonHeight);
   rect(rewindButtonX, rewindButtonY, rewindButtonWidth, rewindButtonHeight);
   rect(albumCoverX, albumCoverY, albumCoverWidth, albumCoverHeight);
-  rect(loopSquareX,loopSquareY,loopSquareWidth,loopSquareHeight);
+  rect(nameSquareX, nameSquareY, nameSquareWidth, nameSquareHeight);
   rect(nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight);
-  rect( previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight );
+  rect(previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight );
+  rect(loopButtonX, loopButtonY, loopButtonWidth, loopButtonHeight);
+  fill(orange);
+  rect(nextButtonX2, nextButtonY2, nextButtonWidth2, nextButtonHeight2);
+  rect(previousButtonX2, previousButtonY2, previousButtonWidth2, previousButtonHeight2);
+  //
+  ellipse(loopX, loopY,  loopDiameter,  loopDiameter );
   //
   fill(orange);
   triangle(playButtonX1, playButtonY1, playButtonX2, playButtonY2, playButtonX3, playButtonY3);
@@ -187,9 +235,11 @@ void draw () {
   triangle(skipButton2X1, skipButton2Y1, skipButton2X2, skipButton2Y2, skipButton2X3, skipButton2Y3);
   triangle(rewindButtonX1, rewindButtonY1, rewindButtonX2, rewindButtonY2, rewindButtonX3, rewindButtonY3);
   triangle(rewindButton2X1, rewindButton2Y1, rewindButton2X2, rewindButton2Y2, rewindButton2X3, rewindButton2Y3);
+  triangle(nextButtontriX1, nextButtontriY1, nextButtontriX2, nextButtontriY2, nextButtontriX3, nextButtontriY3);
+  triangle(previousButtontriX1, previousButtontriY1, previousButtontriX2, previousButtontriY2, previousButtontriX3, previousButtontriY3);
   //
   fill(white);
-  rect(loopSquareX, loopSquareY, loopSquareWidth, loopSquareHeight);
+  rect(nameSquareX, nameSquareY, nameSquareWidth, nameSquareHeight);
   fill(red); //Ink, hexidecimal copied from Color Selector
   textAlign (CENTER, CENTER); //Align X&Y, see Processing.org / Reference
   //Values: [LEFT | CENTER | RIGHT] & [TOP | CENTER | BOTTOM | BASELINE]
@@ -199,7 +249,7 @@ void draw () {
 }
 
 void keyPressed() {
-   println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
+  println ("Current Song before the next or back button, ", "Number: "+currentSong); //For Debugging
   if (key == 'd' || key == 'D') { //Next Button to Console
     if (song[currentSong].isPlaying()) {
       song[currentSong].pause();
@@ -212,7 +262,6 @@ void keyPressed() {
         currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
         println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
       }
-
     } else {
       song[currentSong].rewind();
       if ( currentSong == numberOfSongs - 1 ) {
@@ -251,7 +300,7 @@ void keyPressed() {
       }
     }
   }
-  
+
   if (key == 'p' || key == 'P') {
     if ( song[currentSong].isPlaying() ) {
       song[0].pause();
@@ -296,7 +345,7 @@ void mousePressed() {
   if (mouseX>rewindButtonX && mouseX< rewindButtonX+rewindButtonWidth && mouseY> rewindButtonY && mouseY<rewindButtonY+rewindButtonHeight) {
     song[currentSong].skip(-5000);//rewind
   }
-  
+
   if (mouseX>previousButtonX && mouseX< previousButtonX+previousButtonWidth && mouseY> previousButtonY && mouseY<previousButtonY+previousButtonHeight) { //Next Button to Console
     if (song[currentSong].isPlaying()) {
       song[currentSong].pause();
@@ -322,7 +371,7 @@ void mousePressed() {
       }
     }
   }
-  
+
   if (mouseX>nextButtonX && mouseX< nextButtonX+nextButtonWidth && mouseY> nextButtonY && mouseY<nextButtonY+nextButtonHeight) { //Next Button to Console
     if (song[currentSong].isPlaying()) {
       song[currentSong].pause();
@@ -335,7 +384,6 @@ void mousePressed() {
         currentSong -= 1; // Equivalent code: currentSong = currentSong + 1
         println ("Current Song after the next or back button, but not the last song", "\tNumber: "+currentSong); //For Debugging
       }
-
     } else {
       song[currentSong].rewind();
       if ( currentSong == numberOfSongs - 1 ) {
@@ -348,5 +396,8 @@ void mousePressed() {
       }
     }
   }
-  
+  if (mouseX>loopButtonX && mouseX<loopButtonX+loopButtonWidth && mouseY>loopButtonY && mouseY<loopButtonY+loopButtonHeight) {
+    song[currentSong].loop(loopNum);
+    println("Now looping");
+  }
 }
