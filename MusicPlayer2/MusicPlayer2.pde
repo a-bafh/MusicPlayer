@@ -340,10 +340,12 @@ void mousePressed() {
   //
   if (mouseX>skipButtonX && mouseX< skipButtonX+skipButtonWidth && mouseY> skipButtonY && mouseY<skipButtonY+skipButtonHeight) {
     song[currentSong].skip(5000);//fastforward
+    println("skiped 5 secs");
   }
   //
   if (mouseX>rewindButtonX && mouseX< rewindButtonX+rewindButtonWidth && mouseY> rewindButtonY && mouseY<rewindButtonY+rewindButtonHeight) {
     song[currentSong].skip(-5000);//rewind
+     println("rewound 5 secs");
   }
 
   if (mouseX>previousButtonX && mouseX< previousButtonX+previousButtonWidth && mouseY> previousButtonY && mouseY<previousButtonY+previousButtonHeight) { //Next Button to Console
